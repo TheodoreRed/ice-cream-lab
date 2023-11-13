@@ -1,0 +1,57 @@
+.flavor-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.Votes button {
+  padding: 5px 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.Votes .results {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Votes .flavor-buttons {
+  font-size: 500px;
+}
+
+.Votes .chocolate-result {
+  display: flex;
+}
+.Votes .chocolate-bar {
+  background-color: #6b3e26;
+  height: 20px;
+  width: 33%;
+}
+.Votes .vanilla-bar {
+  background-color: #f3e5ab;
+  height: 20px;
+  width: 33%;
+}
+.Votes .strawberry-bar {
+  background-color: #fc5a8d;
+  height: 20px;
+  width: 33%;
+}
+
+.Votes .percent {
+  position: absolute;
+  right: 60%;
+}
+
+.Votes .bold {
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 768px) {
+  .Votes .percent {
+    right: 25%;
+  }
+}

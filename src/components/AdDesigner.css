@@ -1,0 +1,46 @@
+.AdDesigner .design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  width: fit-content;
+  color: #fff;
+  padding: 20px 15px;
+  border: 3px solid white;
+  box-shadow: 0px 0px 5px 1px #000000;
+}
+
+.AdDesigner .caveat-font {
+  font-family: "Caveat", cursive;
+}
+
+.AdDesigner .vote-for {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.AdDesigner .flavor {
+  font-size: 50px;
+}
+
+.AdDesigner .flavor-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.AdDesigner button {
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.AdDesigner .color-theme-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.AdDesigner .font-size-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
