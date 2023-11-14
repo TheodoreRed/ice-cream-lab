@@ -7,7 +7,7 @@ const Votes = () => {
   const [strawVotes, setStrawVotes] = useState(0);
   const total = chocVotes + vanVotes + strawVotes;
 
-  const getPercent = (votes: number): number => {
+  const getPercent = (votes: number): number | string => {
     return total === 0 ? 0 : +((votes / total) * 100).toFixed(2);
   };
 
@@ -46,8 +46,8 @@ const Votes = () => {
             <span className="bold">Chocolate: </span>
 
             <span className="percent">
-              <span className="count">{chocVotes} </span>
-              {`(${getPercent(chocVotes)}%)`}
+              <span className="count">{total === 0 ? "" : chocVotes} </span>
+              {total === 0 ? `No votes yet.` : `(${getPercent(chocVotes)}%)`}
             </span>
           </p>
           <p
@@ -60,8 +60,8 @@ const Votes = () => {
             <span className="bold">Vanilla: </span>
 
             <span className="percent">
-              <span className="count">{vanVotes} </span>
-              {`(${getPercent(vanVotes)}%)`}
+              <span className="count">{total === 0 ? "" : vanVotes} </span>
+              {total === 0 ? `No votes yet.` : `(${getPercent(vanVotes)}%)`}
             </span>
           </p>
           <p
@@ -74,8 +74,8 @@ const Votes = () => {
             <span className="bold">Strawberry: </span>
 
             <span className="percent">
-              <span className="count">{strawVotes} </span>
-              {`(${getPercent(strawVotes)}%)`}
+              <span className="count">{total === 0 ? "" : strawVotes} </span>
+              {total === 0 ? `No votes yet.` : `(${getPercent(strawVotes)}%)`}
             </span>
           </p>
           <p

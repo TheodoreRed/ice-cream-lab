@@ -32,6 +32,7 @@ const AdDesigner = () => {
             setFlavor("Chocolate");
           }}
           className={flavor === "Chocolate" ? "isActive" : ""}
+          disabled={flavor === "Chocolate" ? true : false}
         >
           Chocolate
         </button>
@@ -40,6 +41,7 @@ const AdDesigner = () => {
             setFlavor("Vanilla");
           }}
           className={flavor === "Vanilla" ? "isActive" : ""}
+          disabled={flavor === "Vanilla" ? true : false}
         >
           Vanilla
         </button>
@@ -48,6 +50,7 @@ const AdDesigner = () => {
             setFlavor("Strawberry");
           }}
           className={flavor === "Strawberry" ? "isActive" : ""}
+          disabled={flavor === "Strawberry" ? true : false}
         >
           Strawberry
         </button>
@@ -59,6 +62,7 @@ const AdDesigner = () => {
             setIsDark(false);
           }}
           className={!isDark ? "isActive" : ""}
+          disabled={!isDark}
         >
           Light
         </button>
@@ -67,6 +71,7 @@ const AdDesigner = () => {
             setIsDark(true);
           }}
           className={isDark ? "isActive" : ""}
+          disabled={isDark}
         >
           Dark
         </button>
