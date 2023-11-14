@@ -1,3 +1,5 @@
+/* Global styles and resets */
+
 body,
 h1,
 h2,
@@ -26,5 +28,12 @@ button {
   color: #fff;
   background-color: #0e3c7e;
   cursor: pointer;
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 5px;
   border: none;
+}
+
+button:disabled {
+  background-color: gray;
 }

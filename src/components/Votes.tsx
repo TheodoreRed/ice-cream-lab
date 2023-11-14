@@ -1,13 +1,19 @@
 import { useState } from "react";
 import "./Votes.css";
+import VotesModel from "../models/VotesModel";
 
 const Votes = () => {
-  const [chocVotes, setChocVotes] = useState(0);
+  /* const [chocVotes, setChocVotes] = useState(0);
   const [vanVotes, setVanVotes] = useState(0);
-  const [strawVotes, setStrawVotes] = useState(0);
-  const total = chocVotes + vanVotes + strawVotes;
+  const [strawVotes, setStrawVotes] = useState(0); */
+  const [votes, setVotes] = useState<VotesModel>({
+    chocolate: 0,
+    vanilla: 0,
+    strawberry: 0,
+  });
+  const total = votes.chocolate + votes.vanilla + votes.strawberry;
 
-  const getPercent = (votes: number): number | string => {
+  const getPercent = (votes: number): number => {
     return total === 0 ? 0 : +((votes / total) * 100).toFixed(2);
   };
 
@@ -17,7 +23,11 @@ const Votes = () => {
       <section className="flavor-buttons">
         <button
           onClick={() => {
-            setChocVotes((prev) => prev + 1);
+            setVotes((prev) => {
+              const copyOfPrev: VotesModel = { ...prev };
+              copyOfPrev.chocolate++;
+              return copyOfPrev;
+            });
           }}
           className="chocolate-btn"
         >
@@ -25,7 +35,11 @@ const Votes = () => {
         </button>
         <button
           onClick={() => {
-            setVanVotes((prev) => prev + 1);
+            setVotes((prev) => {
+              const copyOfPrev: VotesModel = { ...prev };
+              copyOfPrev.vanilla++;
+              return copyOfPrev;
+            });
           }}
           className="vanilla-btn"
         >
@@ -33,7 +47,11 @@ const Votes = () => {
         </button>
         <button
           onClick={() => {
-            setStrawVotes((prev) => prev + 1);
+            setVotes((prev) => {
+              const copyOfPrev: VotesModel = { ...prev };
+              copyOfPrev.strawberry++;
+              return copyOfPrev;
+            });
           }}
           className="strawberry-btn"
         >
@@ -46,13 +64,17 @@ const Votes = () => {
             <span className="bold">Chocolate: </span>
 
             <span className="percent">
-              <span className="count">{total === 0 ? "" : chocVotes} </span>
-              {total === 0 ? `No votes yet.` : `(${getPercent(chocVotes)}%)`}
+              <span className="count">
+                {total === 0 ? "" : votes.chocolate}{" "}
+              </span>
+              {total === 0
+                ? `No votes yet.`
+                : `(${getPercent(votes.chocolate)}%)`}
             </span>
           </p>
           <p
             className="chocolate-bar"
-            style={{ width: `${getPercent(chocVotes)}%` }}
+            style={{ width: `${getPercent(votes.chocolate)}%` }}
           ></p>
         </div>
         <div className="vanilla">
@@ -60,13 +82,15 @@ const Votes = () => {
             <span className="bold">Vanilla: </span>
 
             <span className="percent">
-              <span className="count">{total === 0 ? "" : vanVotes} </span>
-              {total === 0 ? `No votes yet.` : `(${getPercent(vanVotes)}%)`}
+              <span className="count">{total === 0 ? "" : votes.vanilla} </span>
+              {total === 0
+                ? `No votes yet.`
+                : `(${getPercent(votes.vanilla)}%)`}
             </span>
           </p>
           <p
             className="vanilla-bar"
-            style={{ width: `${getPercent(vanVotes)}%` }}
+            style={{ width: `${getPercent(votes.vanilla)}%` }}
           ></p>
         </div>
         <div className="strawberry">
@@ -74,13 +98,17 @@ const Votes = () => {
             <span className="bold">Strawberry: </span>
 
             <span className="percent">
-              <span className="count">{total === 0 ? "" : strawVotes} </span>
-              {total === 0 ? `No votes yet.` : `(${getPercent(strawVotes)}%)`}
+              <span className="count">
+                {total === 0 ? "" : votes.strawberry}{" "}
+              </span>
+              {total === 0
+                ? `No votes yet.`
+                : `(${getPercent(votes.strawberry)}%)`}
             </span>
           </p>
           <p
             className="strawberry-bar"
-            style={{ width: `${getPercent(strawVotes)}%` }}
+            style={{ width: `${getPercent(votes.strawberry)}%` }}
           ></p>
         </div>
       </section>
