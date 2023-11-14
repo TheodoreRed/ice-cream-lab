@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 50vw;
 }
 
 .Votes .flavor-buttons {
@@ -28,17 +29,14 @@
 .Votes .chocolate-bar {
   background-color: #6b3e26;
   height: 20px;
-  width: 33%;
 }
 .Votes .vanilla-bar {
   background-color: #f3e5ab;
   height: 20px;
-  width: 33%;
 }
 .Votes .strawberry-bar {
   background-color: #fc5a8d;
   height: 20px;
-  width: 33%;
 }
 
 .Votes .percent {

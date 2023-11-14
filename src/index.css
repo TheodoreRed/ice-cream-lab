@@ -25,4 +25,6 @@ h2 {
 button {
   color: #fff;
   background-color: #0e3c7e;
+  cursor: pointer;
+  border: none;
 }

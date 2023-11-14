@@ -44,3 +44,7 @@
   align-items: center;
   gap: 10px;
 }
+
+.AdDesigner .isActive {
+  background-color: gray;
+}
