@@ -1,7 +1,16 @@
+.Header {
+  box-shadow: 0px -2px 8px 0px #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .Header h1 {
-  text-align: center;
   color: #0e3c7e;
   font-size: 45px;
-  box-shadow: 0px -2px 8px 0px #000000;
   padding: 10px;
+}
+
+.Header p {
+  margin-right: 20px;
 }
