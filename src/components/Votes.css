@@ -18,15 +18,15 @@
   display: flex;
 }
 .Votes .chocolate-bar {
-  background-color: #6b3e26;
+  /* background-color: #6b3e26; */
   height: 20px;
 }
 .Votes .vanilla-bar {
-  background-color: #f3e5ab;
+  /* background-color: #f3e5ab; */
   height: 20px;
 }
 .Votes .strawberry-bar {
-  background-color: #fc5a8d;
+  /* background-color: #fc5a8d; */
   height: 20px;
 }
 

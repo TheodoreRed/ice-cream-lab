@@ -2,16 +2,32 @@ import { useState } from "react";
 import "./Votes.css";
 import VotesModel from "../models/VotesModel";
 
-const Votes = () => {
+interface Props {
+  flavor1: string;
+  flavor2: string;
+  flavor3: string;
+  flavor1Color: string;
+  flavor2Color: string;
+  flavor3Color: string;
+}
+
+const Votes = ({
+  flavor1,
+  flavor2,
+  flavor3,
+  flavor1Color,
+  flavor2Color,
+  flavor3Color,
+}: Props) => {
   /* const [chocVotes, setChocVotes] = useState(0);
   const [vanVotes, setVanVotes] = useState(0);
   const [strawVotes, setStrawVotes] = useState(0); */
   const [votes, setVotes] = useState<VotesModel>({
-    chocolate: 0,
-    vanilla: 0,
-    strawberry: 0,
+    flavor1: 0,
+    flavor2: 0,
+    flavor3: 0,
   });
-  const total = votes.chocolate + votes.vanilla + votes.strawberry;
+  const total = votes.flavor1 + votes.flavor2 + votes.flavor3;
 
   const getPercent = (votes: number): number => {
     return total === 0 ? 0 : +((votes / total) * 100).toFixed(2);
@@ -25,90 +41,95 @@ const Votes = () => {
           onClick={() => {
             setVotes((prev) => {
               const copyOfPrev: VotesModel = { ...prev };
-              copyOfPrev.chocolate++;
+              copyOfPrev.flavor1++;
               return copyOfPrev;
             });
           }}
           className="chocolate-btn"
         >
-          Chocolate
+          {flavor1}
         </button>
         <button
           onClick={() => {
             setVotes((prev) => {
               const copyOfPrev: VotesModel = { ...prev };
-              copyOfPrev.vanilla++;
+              copyOfPrev.flavor2++;
               return copyOfPrev;
             });
           }}
           className="vanilla-btn"
         >
-          Vanilla
+          {flavor2}
         </button>
         <button
           onClick={() => {
             setVotes((prev) => {
               const copyOfPrev: VotesModel = { ...prev };
-              copyOfPrev.strawberry++;
+              copyOfPrev.flavor3++;
               return copyOfPrev;
             });
           }}
           className="strawberry-btn"
         >
-          Strawberry
+          {flavor3}
         </button>
       </section>
       <section className="results">
         <div className="chocolate">
           <p className="chocolate-result">
-            <span className="bold">Chocolate: </span>
+            <span className="bold">{flavor1}: </span>
 
             <span className="percent">
-              <span className="count">
-                {total === 0 ? "" : votes.chocolate}{" "}
-              </span>
+              <span className="count">{total === 0 ? "" : votes.flavor1} </span>
               {total === 0
                 ? `No votes yet.`
-                : `(${getPercent(votes.chocolate)}%)`}
+                : `(${getPercent(votes.flavor1)}%)`}
             </span>
           </p>
           <p
             className="chocolate-bar"
-            style={{ width: `${getPercent(votes.chocolate)}%` }}
+            style={{
+              width: `${getPercent(votes.flavor1)}%`,
+              backgroundColor: flavor1Color,
+            }}
           ></p>
         </div>
         <div className="vanilla">
           <p className="vanilla-result">
-            <span className="bold">Vanilla: </span>
+            <span className="bold">{flavor2}: </span>
 
             <span className="percent">
-              <span className="count">{total === 0 ? "" : votes.vanilla} </span>
+              <span className="count">{total === 0 ? "" : votes.flavor2} </span>
               {total === 0
                 ? `No votes yet.`
-                : `(${getPercent(votes.vanilla)}%)`}
+                : `(${getPercent(votes.flavor2)}%)`}
             </span>
           </p>
           <p
             className="vanilla-bar"
-            style={{ width: `${getPercent(votes.vanilla)}%` }}
+            style={{
+              width: `${getPercent(votes.flavor2)}%`,
+              backgroundColor: flavor2Color,
+            }}
           ></p>
         </div>
         <div className="strawberry">
           <p className="strawberry-result">
-            <span className="bold">Strawberry: </span>
+            <span className="bold">{flavor3}: </span>
 
             <span className="percent">
-              <span className="count">
-                {total === 0 ? "" : votes.strawberry}{" "}
-              </span>
+              <span className="count">{total === 0 ? "" : votes.flavor3} </span>
               {total === 0
                 ? `No votes yet.`
-                : `(${getPercent(votes.strawberry)}%)`}
+                : `(${getPercent(votes.flavor3)}%)`}
             </span>
           </p>
           <p
             className="strawberry-bar"
-            style={{ width: `${getPercent(votes.strawberry)}%` }}
+            style={{
+              width: `${getPercent(votes.flavor3)}%`,
+              backgroundColor: flavor3Color,
+            }}
           ></p>
         </div>
       </section>

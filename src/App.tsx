@@ -20,7 +20,14 @@ function App() {
             <AdDesigner />
           </section>
           <section className="vote">
-            <Votes />
+            <Votes
+              flavor1="Blue Moon"
+              flavor2="Mint Chocolate Chip"
+              flavor3="Cotton Candy"
+              flavor1Color="#3686A0"
+              flavor2Color="#BDE8D4"
+              flavor3Color="rgba(246, 112, 181, 0.8)"
+            />
           </section>
         </div>
       </main>

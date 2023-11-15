@@ -9,7 +9,7 @@ interface Props {
 const Ad = (props: Props) => {
   return (
     <div className="Ad">
-      <section
+      <div
         className="design"
         style={
           !props.isDark
@@ -28,7 +28,7 @@ const Ad = (props: Props) => {
         >
           {props.flavor}
         </p>
-      </section>
+      </div>
     </div>
   );
 };

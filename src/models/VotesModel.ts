@@ -1,5 +1,5 @@
 export default interface VotesModel {
-  chocolate: number;
-  vanilla: number;
-  strawberry: number;
+  flavor1: number;
+  flavor2: number;
+  flavor3: number;
 }
